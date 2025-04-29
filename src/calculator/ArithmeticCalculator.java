@@ -4,21 +4,19 @@ import java.util.ArrayList;
 
 public class ArithmeticCalculator<T extends Number> {
     public enum OperatorType{
-        PLUS('+'), MINUS('-'), MULTIPLY('*'), DIVIDE('/');
+        PLUS, MINUS, MULTIPLY, DIVIDE;
 
-        private final char operator;
 
-        OperatorType(char operator) {
-            this.operator = operator;
-        }
-        public char getOperator() {
-            return operator;
-        }
         public static OperatorType fromChar(char c) {
-            for (OperatorType op : values()) {
-                if (op.operator == c) {
-                    return op;
-                }
+
+            if(c=='+'){
+                return OperatorType.PLUS;
+            }else if(c=='-'){
+                return OperatorType.MINUS;
+            }else if(c=='*'){
+                return OperatorType.MULTIPLY;
+            }else if(c=='/'){
+                return OperatorType.DIVIDE;
             }
             throw new IllegalArgumentException("지원하지 않는 연산자입니다: " + c);
         }
